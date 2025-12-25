@@ -71,3 +71,39 @@ console.log(typeof myFunction); // "function" (functions in JavaScript are a spe
 
 //study more on data types here:
 // https://262.ecma-international.org/5.1/#sec-11.4.3
+
+
+
+
+//++++++++++++++++++++++++++++++++++++++++++++++
+//Memory Allocation of Primitive and Reference Data Types
+
+// Primitive data types are stored in stack memory (copy of actual value is stored).
+// Reference data types are stored in heap memory. (reference/address of the actual value is stored).
+
+
+// Example to illustrate memory allocation of Primitive Data Types
+
+let myCarname = "Swift" 
+
+let anotherCarname = myCarname; //copy of myCarname created in anotherCarname
+anotherCarname = "Brezza" //modifying anotherCarname does not affect myCarname
+
+console.log(myCarname); // o/p swift
+console.log(anotherCarname); // o/p Brezza
+
+
+
+// Example to illustrate memory allocation of Reference Data Types
+
+let userOne = {
+    email: "user@gmail.com",
+    upi: "user@oksbi"
+}
+
+let userTwo = userOne; //userTwo references the same object as userOne
+
+userTwo.email = "yash@gmail.com"
+
+console.log(userOne.email); // o/p yash@gmail.com
+console.log(userTwo.email); // o/p yash@gmail.com
