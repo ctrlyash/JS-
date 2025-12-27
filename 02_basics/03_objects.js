@@ -1,5 +1,5 @@
 // Singleton Object (created using constructor function.)
-Object.create
+// Eg: const JsUser = new Object()
 
 // Object literals
 
