@@ -64,3 +64,47 @@ function loginUserMessage2(username) {
 }
 console.log(loginUserMessage2()); // Please provide a username
 console.log(loginUserMessage2("Yash")); // Yash just logged in
+
+
+function calculateCartPrice(num1) {
+    return num1;
+}
+console.log(calculateCartPrice(100)); // 100
+
+function calculateAnotherCartPrice(...num1) // Rest operator to accept multiple arguments
+ {
+    return num1;
+}
+console.log(calculateAnotherCartPrice(100, 200, 300)); // [100, 200, 300] (array of numbers)
+
+function calculateTotalCartPrice(val1, val2, ...num1) // Mix of regular and rest parameters
+ {
+    return num1;
+}
+console.log(calculateTotalCartPrice(10, 20, 100, 200, 300)); // [100, 200, 300] (10 and 20 are assigned to val1 and val2 respectively)
+
+const user = {
+    name: "Yash",
+    age: 20
+}
+
+function handleObject(anyObj) {
+    console.log(`Username is ${anyObj.name} and age is ${anyObj.age}`);
+}
+
+handleObject(user); // Username is Yash and age is 20
+handleObject({
+     name: "Alice", 
+     age: 25 
+    }); // Username is Alice and age is 25 (passing object directly )
+
+// Similar example with arrays
+
+const myNewArray = [1, 2, 3, 4, 5];
+
+function returnSecondValue(getArray) {  
+    return getArray[1];
+}
+console.log(returnSecondValue(myNewArray)); // 2
+
+console.log(returnSecondValue([10, 20, 30, 40])); // 20 (passing array directly)
