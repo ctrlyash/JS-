@@ -71,3 +71,35 @@ console.log(instagramUser2.hasOwnProperty('isLoggedIn')) // true
 
 
 // we can study more about object methods using browswer console...
+
+
+//Objects and Destructuring
+
+const course = {
+    coursename: "JavaScript",
+    price: 999,
+    courseInstructor: "Yash Dadhich"
+} // Object
+
+// Accessing Object Properties
+
+course.courseInstructor // "Yash Dadhich"
+
+// Destructuring
+
+const {courseInstructor: instructor} = course
+
+console.log(instructor) // Yash Dadhich  
+
+{
+    "name": "Yash",
+    "coursename": "JavaScript",
+    "price": "free"
+} // JSON format 
+
+[
+    {},
+    {},
+    {}
+] // Array of objects in JSON format
+
