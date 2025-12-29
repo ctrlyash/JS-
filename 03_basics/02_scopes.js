@@ -26,6 +26,49 @@ console.log(f) // 300
 // This is why d and e shows reference error outside the block while f is printed.
 
 
+function one() {
+  const username = "yash"
+
+  function two () {
+    const website = "google"
+    console.log (username);
+  }
+    //console.log(website); // referenceError: website is not defined
+
+    two() // yash
+    
+}
+
+one()
+
+if (true) {
+  const username = "yash"
+  if (username === "yash") {
+    const website = " google"
+    console.log(username + website);// yash google
+  }
+  console.log(website);// error out of the scope
+  
+}
+
+console.log(username);// error out of the scope
+
+// ++++++++++++++++++++++++++++ interesting ++++++++++++++++++++++++++
+
+
+addOne(5)           // 6 ( no error using this syntax when calling line stated before declaration)
+function addOne(num){
+  return num + 1
+}
+
+
+addTwo(7)                    // error using this syntax when calling line stated before declaration.
+const addTwo = function(num){
+  return num + 2
+}
+
+
+
 
 
 
