@@ -1,4 +1,4 @@
-/****************************************************
+/*
  * IF–ELSE CONDITIONS IN JAVASCRIPT
  * This file demonstrates:
  * 1. Basic if–else
@@ -6,50 +6,58 @@
  * 3. Block scope (let)
  * 4. Short-hand if
  * 5. else-if ladder
- * 6. Logical operators (&&, ||)
- ****************************************************/
+ * 6. Logical operators (&&, ||) */
 
 
-// ------------------------------
-// Example 1: Basic if–else
-// ------------------------------
+//  Basic if–else
 
-// User login status
-const isUserLoggedIn = true;
+const isUserLoggedIn = true
+if (isUserLoggedIn) {
+    console.log("User is logged in"); // User is logged in (executed because condition is satisfied)
+} 
+console.log("not executed"); // not executed (this line has nothing to do wih the condition as it is out of scope so it will be printed anyways.)
 
-// Current temperature value
+// If we want any one output to be printed then we use else keyword with if.
+
+// for eg-
+
+const isUserLoggedOut = false
+if (isUserLoggedOut) {
+    console.log("User is logged out"); 
+} else {
+    console.log("User is logged in");
+
+} // User is logged in
+
+
+// Comparison Operators
+/*
+<   less than
+>   greater than
+<=  less than or equal to
+>=  greater than or equal to
+==  loose equality (not recommended) (Loose equality compares only values, not data types.
+JavaScript automatically converts (type coercion) the operands before comparison.)
+!=  loose not equal
+=== strict equality (recommended) (Strict equality compares both value and data type.
+No type conversion is performed.)
+!== strict not equal
+*/
+
+
 const temperature = 41;
 
 // Check temperature using strict comparison
 if (temperature === 40) {
     console.log("Temperature is exactly 40");
 } else {
-    console.log("Temperature is not 40");
-}
-
-// This line always executes
-console.log("Program execution completed");
+    console.log("Temperature is not 40"); 
+} // Temperature is not 40
 
 
-// ------------------------------
-// Example 2: Comparison Operators
-// ------------------------------
-
-/*
-<   less than
->   greater than
-<=  less than or equal to
->=  greater than or equal to
-==  loose equality (not recommended)
-!=  loose not equal
-=== strict equality (recommended)
-!== strict not equal
-*/
+console.log("Program execution completed"); // This line always executes
 
 
-// ------------------------------
-// Example 3: Block Scope with let
-// ------------------------------
 
 const score = 200;
 
@@ -57,25 +65,21 @@ const score = 200;
 if (score > 100) {
     let power = "fly";     // Block-scoped variable
     console.log(`User power: ${power}`);
-}
+} // User power: fly
 
-// ❌ This would cause an error if uncommented
-// console.log(power);   // power is not accessible outside the block
+console.log(power);   // Reference Error: power is not defined (power is not accessible outside the block)
 
 
-// ------------------------------
-// Example 4: Short-hand if (NOT recommended)
-// ------------------------------
+
+// Short-hand if (NOT recommended)
 
 const balance = 1000;
 
-// One-line if statement (works but reduces readability)
-if (balance > 500) console.log("Test"), console.log("Test2");
+if (balance > 500) console.log("Test"), console.log("Test2"); // One-line if statement (works but reduces readability)
 
 
-// ------------------------------
+
 // Example 5: else-if ladder
-// ------------------------------
 
 if (balance < 500) {
     console.log("Balance is less than 500");
@@ -88,29 +92,21 @@ if (balance < 500) {
 }
 
 
-// ------------------------------
-// Example 6: Logical AND (&&)
-// ------------------------------
+// Logical AND (&&)
 
-// User authentication details
 const userLoggedIn = true;
 const debitCard = true;
 
-// All conditions must be true
 if (userLoggedIn && debitCard && 2 == 3) {
     console.log("Allow user to buy course");
-}
+} // All conditions must be true
 
 
-// ------------------------------
-// Example 7: Logical OR (||)
-// ------------------------------
+//  Logical OR (||)
 
-// Login methods
 const loggedInFromGoogle = false;
 const loggedInFromEmail = true;
 
-// At least one condition must be true
 if (loggedInFromGoogle || loggedInFromEmail) {
     console.log("User logged in successfully");
-}
+} // At least one condition must be true.
