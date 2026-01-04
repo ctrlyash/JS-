@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>DOM learning</title>
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color: #fff
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <div >
+        <h1  id="title" class="heading">DOM learning on by Yash <span style="display: none;">test text</span></h1>
+        <p>Lorem ipsum dolor sit amet.</p>
+
+    <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <input type="password" name="" id="">
+
+        <ul>
+            <li class="list-item">one</li>
+            <li class="list-item">two</li>
+            <li class="list-item">three</li>
+            <li class="list-item">four</li>
+        </ul>
+    </div>    
+</body>
+</html>
+
+
+
+<!-- ======================= DOM SELECTION (INVESTIGATION NOTES) ======================= -->
+
+<!--https://www.youtube.com/watch?v=_TjtAyMkiTI&t=1105s   (REFERENCE)
+--> 
+
+<!-- ======================= getElementById ======================= -->
+
+<!--
+document.getElementById("title")
+→ Returns the element with id="title"
+→ If ID does NOT exist → returns null
+-->
+
+<!-- ❌ Common Mistake:
+document.getElementById("#title")
+IDs are passed WITHOUT # → returns null
+-->
+
+<!-- ======================= getElementsByClassName ======================= -->
+
+<!--
+document.getElementsByClassName("list-item")
+→ Returns HTMLCollection
+→ Even if only one element exists, result is STILL a collection
+-->
+
+<!-- ❌ Common Mistake:
+document.getElementsByClassName("list-item").style.color = "red"
+HTMLCollection has NO style property
+-->
+
+<!-- ✅ Correct:
+document.getElementsByClassName("list-item")[0].style.color = "red"
+-->
+
+<!-- ======================= getElementsByTagName ======================= -->
+
+<!--
+document.getElementsByTagName("h2")
+→ Returns HTMLCollection of all h2 elements
+-->
+
+<!-- ❌ Common Mistake:
+Trying to use forEach() on HTMLCollection
+-->
+
+<!-- ======================= querySelector ======================= -->
+
+<!--
+document.querySelector("h2")
+→ Returns ONLY the FIRST h2
+-->
+
+<!-- ❌ Common Mistake:
+Assuming it selects ALL matching elements
+-->
+
+<!-- ======================= querySelectorAll ======================= -->
+
+<!--
+document.querySelectorAll("h2")
+→ Returns NodeList of ALL h2 elements
+→ Supports forEach()
+-->
+
+<!-- ❌ Common Mistake:
+document.querySelectorAll("h2").style.color = "orange"
+NodeList has NO style property
+-->
+
+<!-- ✅ Correct:
+document.querySelectorAll("h2").forEach(h2 => {
+  h2.style.color = "orange";
+});
+-->
+
+<!-- ======================= ID vs TAG CONFUSION ======================= -->
+
+<!-- ❌ Common Mistake:
+document.querySelector("title")
+This selects <title> tag, NOT id="title"
+-->
+
+<!-- ✅ Correct:
+document.querySelector("#title")
+-->
+
+<!-- ======================= LIVE vs STATIC ======================= -->
+
+<!--
+HTMLCollection → LIVE (auto updates)
+NodeList → STATIC (does NOT auto update)
+-->
+
+<!-- ❌ Common Mistake:
+Assuming NodeList updates after DOM changes
+-->
+
+<!-- ======================= NULL SAFETY ======================= -->
+
+<!-- ❌ Common Mistake:
+document.getElementById("wrongId").style.color = "red"
+→ Error: Cannot read properties of null
+-->
+
+<!-- ✅ Safe Check:
+const el = document.getElementById("wrongId");
+if (el) {
+  el.style.color = "red";
+}
+-->
+
+<!-- ======================= TEXT INVESTIGATION ======================= -->
+
+<!-- Given HTML:
+<h1 id="title">
+  DOM learning on by Yash
+  <span style="display: none;">test text</span>
+</h1>
+-->
+
+<!-- ======================= innerText ======================= -->
+
+<!--
+document.getElementById("title").innerText
+→ Returns ONLY visible text
+→ Respects CSS (display: none)
+-->
+
+<!-- Result:
+"DOM learning on by Yash"
+-->
+
+<!-- ❌ Common Mistake:
+Expecting hidden text from innerText
+-->
+
+<!-- ======================= textContent ======================= -->
+
+<!--
+document.getElementById("title").textContent
+→ Returns ALL text
+→ Includes hidden text
+→ Ignores CSS
+-->
+
+<!-- Result:
+"DOM learning on by Yash test text"
+-->
+
+<!-- ❌ Common Mistake:
+Using textContent when only visible text is required
+-->
+
+<!-- ======================= innerHTML ======================= -->
+
+<!--
+document.getElementById("title").innerHTML
+→ Returns HTML + text
+-->
+
+<!-- Result:
+DOM learning on by Yash <span style="display: none;">test text</span>
+-->
+
+<!-- ❌ Common Mistake:
+Using innerHTML when plain text is enough
+(Security + performance issue)
+-->
+
+<!-- ======================= MODIFYING CONTENT ======================= -->
+
+<!--
+document.getElementById("title").innerText = "New Title"
+→ Changes visible text only
+-->
+
+<!--
+document.getElementById("title").innerHTML = "<h2>Hello</h2>"
+→ Replaces entire HTML inside h1
+-->
+
+<!-- ❌ Common Mistake:
+Using innerHTML with user input
+→ XSS vulnerability
+-->
+
+<!-- ======================= INVESTIGATION BEST PRACTICES ======================= -->
+
+<!--
+1. Always console.log() the result
+2. Check return type (Element / NodeList / HTMLCollection)
+3. Never assume querySelector selects all
+4. Index HTMLCollection before styling
+5. Test hidden elements for text behavior
+-->
+
