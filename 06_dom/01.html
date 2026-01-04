@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>DOM learning</title>
+</head>
+<body>
+    <div class="bg-black">
+        <h1  id="title" class="heading">DOM learning on by Yash <span style="display: none;">test text</span></h1>
+        <p>Lorem ipsum dolor sit amet</p>
+    </div>
+</body>
+</html>
+
+
+<!-- DOM TREE
+
+window
+ └── document
+       └── html
+             ├── head
+             │     ├── title → text node
+             │     └── meta  → attributes
+             └── body
+                   └── div → attributes
+                         ├── h1 → text node
+                         └── p  → text node  
+-->
+
+
+                        
+<!--- Explanation (Read once if needed) -->
+
+<!--  DOM (Document Object Model)  -->
+
+<!--
+The DOM is a tree-like structure created by the browser
+It represents the entire HTML document as objects
+JavaScript uses the DOM to read, change, add, or remove HTML elements
+-->
+
+<!--  WINDOW  -->
+
+<!--
+window is the top-most global object in the browser
+Everything in the browser lives inside the window object
+Example: alert(), console, document, setTimeout all belong to window
+-->
+
+<!--
+window
+  |
+  └── document
+-->
+
+<!--  DOCUMENT  -->
+
+<!--
+document represents the loaded HTML page
+It is the entry point to access HTML from JavaScript
+document converts HTML into a DOM tree
+-->
+
+<!-- window.document === document  (true) -->
+
+<!--  HTML  -->
+
+<!--
+<html> is the root element of the DOM tree
+It contains two main children:
+1. <head>
+2. <body>
+-->
+
+<!--
+document
+  |
+  └── html
+-->
+
+<!--  HEAD  -->
+
+<!--
+<head> contains metadata (information ABOUT the page)
+It is NOT visible on the webpage
+-->
+
+<!--
+Common elements inside <head>:
+- <title> → page title (shown on browser tab)
+- <meta>  → page info like charset, viewport, SEO
+-->
+
+<!--
+<title>
+- Contains a text node (plain text)
+- Example: <title>My Website</title>
+-->
+
+<!--
+<meta>
+- Does NOT have a closing tag
+- Uses attributes like name, content, charset
+-->
+
+<!--  BODY  -->
+
+<!--
+<body> contains everything visible on the webpage
+Text, images, buttons, headings, etc.
+-->
+
+<!-- Most DOM manipulation happens inside body -->
+
+<!--  ELEMENT NODES  -->
+
+<!--
+Elements like div, h1, p are called ELEMENT NODES
+They can have:
+1. Attributes
+2. Child elements
+3. Text nodes
+-->
+
+<!--  DIV  -->
+
+<!--
+<div> is a container element
+Used to group elements together
+Can have attributes like id, class, style
+-->
+
+<!-- Example:
+<div id="container" class="box"></div>
+-->
+
+<!--  h1  -->
+
+<!--
+<h1> is a heading element
+It usually contains a TEXT NODE
+-->
+
+<!-- Example:
+<h1>Hello World</h1>
+-->
+
+<!-- "Hello World" is a text node -->
+
+<!--  p  -->
+
+<!--
+<p> is a paragraph element
+It also contains text nodes
+-->
+
+<!-- Example:
+<p>This is a paragraph</p>
+-->
+
+<!--  ATTRIBUTES  -->
+
+<!--
+Attributes provide extra information about elements
+They are written inside opening tags
+-->
+
+<!-- Examples:
+id="main"
+class="container"
+src="image.png"
+-->
+
+<!--
+Accessing attributes using DOM:
+element.getAttribute("id")
+element.setAttribute("class", "box")
+-->
+
+<!--  TEXT NODE  -->
+
+<!--
+Text inside elements is stored as TEXT NODES
+-->
+
+<!-- Example:
+<h1>Hello</h1>
+-->
+
+<!-- "Hello" is NOT an element, it is a text node -->
+
+<!--  DOM TREE SUMMARY  -->
+
+
+
+<!--  WHY DOM IS IMPORTANT  -->
+
+<!--
+JavaScript uses the DOM to:
+- Change text
+- Change styles
+- Add or remove elements
+- React to user actions (click, input, scroll)
+-->
+
+<!-- Example:
+document.querySelector("h1").innerText = "New Heading";
+-->
+
+<!-- Best Practice:
+Always understand DOM as a TREE, not just HTML code
+-->
+
+
+                         
